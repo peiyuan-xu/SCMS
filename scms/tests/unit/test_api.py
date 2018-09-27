@@ -68,8 +68,6 @@ class ChainDAOTest(BaseTestCase):
         self.assertEqual(2, len(resu))
 
 
-
-
-if __name__ =='__main__':
+if __name__ == '__main__':
     unittest.main()
 
