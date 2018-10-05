@@ -1,5 +1,10 @@
+#!/usr/bin/env python
+# encoding: utf-8
 """
-Exceptions in COCS
+@author: zhuangxu
+@email: zhuangxu0@gmail.com
+@time: 2018/10/5 17:03
+@desc: Exceptions in COCS
 """
 
 

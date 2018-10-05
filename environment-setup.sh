@@ -1,3 +1,10 @@
+#!/usr/bin/env bash
+
+# @author: zhuangxu
+# @email: zhuangxu0@gmail.com
+# @time: 2018/10/5 17:03
+# @desc:
+
 # Install Erlang
 
 wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb

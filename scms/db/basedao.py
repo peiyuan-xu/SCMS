@@ -1,6 +1,12 @@
+#!/usr/bin/env python
+# encoding: utf-8
 """
-Basic class for operating DB
+@author: zhuangxu
+@email: zhuangxu0@gmail.com
+@time: 2018/10/5 17:03
+@desc: Basic class for operating DB
 """
+
 from sqlalchemy.inspection import inspect
 
 from scms.common import exceptions

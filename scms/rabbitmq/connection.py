@@ -1,6 +1,12 @@
+#!/usr/bin/env python
+# encoding: utf-8
 """
-Connection to RabbitMQ server management
+@author: zhuangxu
+@email: zhuangxu0@gmail.com
+@time: 2018/10/5 17:03
+@desc: Connection to RabbitMQ server management
 """
+
 import threading
 
 from pyrabbit.api import Client
