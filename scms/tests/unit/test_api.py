@@ -1,6 +1,12 @@
+#!/usr/bin/env python
+# encoding: utf-8
 """
-DBAPITest
+@author: zhuangxu
+@email: zhuangxu0@gmail.com
+@time: 2018/10/5 17:03
+@desc: DBAPITest
 """
+
 from scms.common import exceptions
 from scms.db.api import ChainDao
 from scms.db import common

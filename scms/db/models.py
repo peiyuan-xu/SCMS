@@ -1,3 +1,12 @@
+#!/usr/bin/env python
+# encoding: utf-8
+"""
+@author: zhuangxu
+@email: zhuangxu0@gmail.com
+@time: 2018/10/5 17:03
+@desc:
+"""
+
 from sqlalchemy import Column, Integer, String, TIMESTAMP, ForeignKey
 from sqlalchemy.ext import declarative
 from sqlalchemy.orm import relationship

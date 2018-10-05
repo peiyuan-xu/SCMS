@@ -1,6 +1,11 @@
+#!/usr/bin/env python
+# encoding: utf-8
 """
-Using for sending message to the rabbit server in COCS
-and the client of COCS can recieve the message.
+@author: zhuangxu
+@email: zhuangxu0@gmail.com
+@time: 2018/10/5 17:03
+@desc: Using for sending message to the rabbit server in SCMS
+and the client of SCMS can recieve the message.
 """
 
 import pika
