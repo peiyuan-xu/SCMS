@@ -22,4 +22,3 @@ class GatherMessages:
         for queue in queues:
             depth = queue['messages']
             GatherMessages.queues_mess_count_dict[queue['name']] = depth
-

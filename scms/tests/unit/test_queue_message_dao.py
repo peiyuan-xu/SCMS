@@ -44,15 +44,15 @@ class QueueMessageDAOTest(BaseTestCase):
 
         # create queuemessage
         queue_messaage_dao = QueueMessageDao()
-        queue_messaage_dao.create_queue_message("chain1", "serviceA", 100)
-        queue_messaage_dao.create_queue_message("chain1", "serviceB", 20)
-        queue_messaage_dao.create_queue_message("chain2", "serviceA", 800)
+        queue_messaage_dao.create_queue_message("serviceA", "chain1", 100)
+        queue_messaage_dao.create_queue_message("serviceB", "chain1", 20)
+        queue_messaage_dao.create_queue_message("serviceA", "chain2", 800)
         time.sleep(1)
-        queue_messaage_dao.create_queue_message("chain1", "serviceA", 300)
+        queue_messaage_dao.create_queue_message("serviceA", "chain1", 300)
 
         resu_chain = chain_dao.get_chain_by_name("chain1")
         self.assertEqual(3, len(resu_chain['queuemessage']))
 
 
-if __name__ =='__main__':
+if __name__ == '__main__':
     unittest.main()

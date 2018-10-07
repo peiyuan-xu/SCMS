@@ -96,17 +96,19 @@ class ServiceDao(BaseDAO):
 
 class QueueMessageDao(BaseDAO):
 
+    def __init__(self):
+        self.chain_dao = ChainDao()
+        self.service_dao = ServiceDao()
+
     def get_queue_message_by_id(self, queue_message_id):
         return self.get_resource(models.QueueMessage, queue_message_id)
 
-    def create_queue_message(self, chain_name, service_name, message_number):
-        chain_dao = ChainDao()
-        chain = chain_dao.get_chain_by_name(chain_name)
+    def create_queue_message(self, service_name, chain_name, message_number):
+        chain = self.chain_dao.get_chain_by_name(chain_name)
         if not chain:
             raise exceptions.ResourceNotFound(models.Chain, chain_name)
 
-        service_dao = ServiceDao()
-        service = service_dao.get_service_by_name(service_name)
+        service = self.service_dao.get_service_by_name(service_name)
         if not service:
             raise exceptions.ResourceNotFound(models.Service, service_name)
 

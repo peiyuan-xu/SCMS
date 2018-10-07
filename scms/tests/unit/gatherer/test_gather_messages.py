@@ -32,9 +32,9 @@ class GatherMessagesTest(BaseTestCase):
     def test_gather_message_count_in_queue(self):
         client = conn.get_rabbitmq_client()
         # create queue
-        client.create_queue(con.RABBITMQ_VHOST, 'queue1')
+        client.create_queue(con.RABBITMQ_VHOST, 'serviceA_chain1')
         # create binding
-        client.create_binding(con.RABBITMQ_VHOST, 'test_exchange', 'queue1', 'my.rtkey')
+        client.create_binding(con.RABBITMQ_VHOST, 'test_exchange', 'serviceA_chain1', 'my.rtkey')
         # add messages
         message = "hello-message1"
         if client.is_alive:
@@ -49,7 +49,7 @@ class GatherMessagesTest(BaseTestCase):
         time.sleep(5)
         gather_message = GatherMessages()
         gather_message.get_message_count_in_queues()
-        self.assertEqual(GatherMessages.queues_mess_count_dict['queue1'], 16)
+        self.assertEqual(GatherMessages.queues_mess_count_dict['queue1'], 2)
 
 
 if __name__ == '__main__':

@@ -71,7 +71,7 @@ class BaseDAO:
 
     def list_resources_by_attr(self, model, filter_dict):
         session = common.get_session()
-        resources = session.query(model).filter_by(**filter_dict).all()
+        resources = session.query(msodel).filter_by(**filter_dict).all()
         session.commit()
         return resources
 
