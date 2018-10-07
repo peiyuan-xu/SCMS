@@ -8,9 +8,8 @@
 and the client of SCMS can recieve the message.
 """
 
-import pika
 from scms.common import exceptions
-from scms.rabbitmq import connection
+from scms.gatherer import connection
 
 
 class Sender(object):
