@@ -38,6 +38,7 @@ class ResourceNotFound(COCSException):
         super(ResourceNotFound, self).__init__(resource_type=resource_type,
                                                unique_key=unique_key)
 
+
 class ResourceInUsing(COCSException):
     message = "Resource %(resource_type)s: %(unique_key)s is in using, " \
               "detail reason is %(reason)s"
@@ -47,6 +48,7 @@ class ResourceInUsing(COCSException):
         super(ResourceInUsing, self).__init__(resource_type=resource_type,
                                               unique_key=unique_key,
                                               reason=reason)
+
 
 class ResourceExist(COCSException):
     message = "Resource %(resource_type)s: %(unique_key)s exist"
@@ -66,7 +68,14 @@ class ParamMissing(COCSException):
 
 class RabbitMQClientDead(COCSException):
     message = "RabbitMQ client is not alive"
+
     def __init__(self):
         super(RabbitMQClientDead, self).__init__()
 
+
+class EndpointNotAvailable(COCSException):
+    messeage = "Endpoint %(url)s for %(service)s is not available"
+
+    def __init__(self, service, url):
+        super(EndpointNotAvailable, self).__init__(service=service, url=url)
 
