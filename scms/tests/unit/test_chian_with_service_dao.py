@@ -55,7 +55,5 @@ class QueueWithServiceDAOTest(BaseTestCase):
         self.assertEqual(c_with_s_temp['service']['name'], 'serviceA')
 
 
-
-
-if __name__ =='__main__':
+if __name__ == '__main__':
     unittest.main()

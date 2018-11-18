@@ -21,10 +21,10 @@ class ZunClient:
 
     @staticmethod
     def get_client():
-        endpointurl = r'http://192.168.56.114/container/v1'
+        endpointurl = r'http://192.168.1.203/container/v1'
 
         client = z_client.Client(
-            '1.2', auth_url='http://192.168.56.114/identity/v3',
+            '1.2', auth_url='http://192.168.1.203/identity/v3',
             password='password',
             project_domain_id='default',
             project_domain_name='Default',

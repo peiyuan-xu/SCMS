@@ -23,7 +23,7 @@ class ZunHandle:
     def list_containers(self, filters):
         try:
             return [res.to_dict() for res in getattr(
-                self.client, ZunHandle.resource).list()]
+                self.client, ZunHandle.resource).list(**filters)]
         except r_exceptions.ConnectTimeout:
             raise c_excp.EndpointNotAvailable(service='zun',
                                               url=self.client.client.management_url)
