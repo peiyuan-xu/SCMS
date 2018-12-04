@@ -15,8 +15,13 @@ from scms.db import common
 
 class BaseDAO:
 
+    def __init__(self):
+        pass
+
     def create_resource(self, model, res_dict):
-        if not res_dict.get('id'):
+        auto_id_list = ['QueueMessage']
+
+        if model.__name__ not in auto_id_list and not res_dict.get('id'):
             res_dict['id'] = common.generate_uuid()
 
         res_object = model.from_dict(res_dict)
@@ -39,6 +44,13 @@ class BaseDAO:
         session = common.get_session()
         session.delete(res_obj)
         session.commit()
+
+    def delete_resource_by_attr(self, model, filter_dict):
+        session = common.get_session()
+        resource = session.query(model).filter_by(**filter_dict).first()
+        if resource:
+            session.delete(resource)
+            session.commit
 
     def update_resource(self, model, pk_value, update_dict):
         res_obj = self._get_resource(model, pk_value)
@@ -71,13 +83,18 @@ class BaseDAO:
 
     def list_resources_by_attr(self, model, filter_dict):
         session = common.get_session()
-        resources = session.query(msodel).filter_by(**filter_dict).all()
+        resources = session.query(model).filter_by(**filter_dict).all()
         session.commit()
         return resources
 
-    def paginate_list_resource(self, model, page_num):
+    def paginate_list_resource(self, model, page_num, order=None, filter={}):
         page_size = 100
         session = common.get_session()
-        return session.query(model).filter_by().limit(page_size).offset((page_num) * page_size)
+        return session.query(model).filter_by(**filter).\
+            limit(page_size).offset((page_num) * page_size)
 
-
+    def paginate_list_first_message_page(self, model, filter):
+        page_size = 100
+        session = common.get_session()
+        return session.query(model).filter_by(**filter)\
+            .order_by(model.id.desc()).limit(page_size).all()
