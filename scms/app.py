@@ -1,10 +1,11 @@
 from pecan import make_app
-from scms import model
+from scms.db import common
+from scms.db import models
 
 
 def setup_app(config):
 
-    model.init_model()
+    models.ModelBase.metadata.create_all(common.get_engine())
     app_conf = dict(config.app)
 
     return make_app(
