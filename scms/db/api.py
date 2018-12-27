@@ -53,10 +53,12 @@ class ChainDao(BaseDAO):
 
     def get_chain_by_name(self, chain_name):
         filter_dict = {'name': chain_name}
-        return self.get_resource_by_attr(models.Chain, filter_dict)
+        chain = self.get_resource_by_attr(models.Chain, filter_dict)
+        return chain.to_dict()
 
     def list_chain_by_attr(self, filter_dict):
-        return self.list_resources_by_attr(models.Chain, filter_dict)
+        chains = self.list_resources_by_attr(models.Chain, filter_dict)
+        return [chain.to_dict() for chain in chains]
 
 
 class ServiceDao(BaseDAO):

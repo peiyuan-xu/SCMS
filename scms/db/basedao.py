@@ -25,12 +25,16 @@ class BaseDAO:
             res_dict['id'] = common.generate_uuid()
 
         res_object = model.from_dict(res_dict)
-        session = common.get_session()
-        session.add(res_object)
-        session.commit()
-        # retrieve auto-generated fields
-        session.refresh(res_object)
-        return res_object.to_dict()
+        try:
+            session = common.get_session()
+            session.add(res_object)
+            session.commit()
+            # refresh res_object
+            session.refresh(res_object)
+            return res_object.to_dict()
+        except:
+            session.rollback()
+            raise
 
     def _get_resource(self, model, pk_value):
         session = common.get_session()
@@ -82,10 +86,14 @@ class BaseDAO:
         return resource
 
     def list_resources_by_attr(self, model, filter_dict):
-        session = common.get_session()
-        resources = session.query(model).filter_by(**filter_dict).all()
-        session.commit()
-        return resources
+        try:
+            session = common.get_session()
+            resources = session.query(model).filter_by(**filter_dict).all()
+            session.commit()
+            return resources
+        except:
+            session.rollback()
+            raise
 
     def paginate_list_resource(self, model, page_num, order=None, filter={}):
         page_size = 100

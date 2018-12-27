@@ -23,7 +23,7 @@ class ChainDAOTest(BaseTestCase):
     def tearDown(self):
         # close the session connected to the mysql
         common.get_session().close()
-        ModelBase.metadata.drop_all(common.get_engine())
+        # ModelBase.metadata.drop_all(common.get_engine())
         pass
 
     def test_add_chain(self):
@@ -75,6 +75,7 @@ class ChainDAOTest(BaseTestCase):
         chain_dao.create_chain(chain2)
 
         resu = chain_dao.list_chain_by_attr({})
+        print(resu)
         self.assertEqual(2, len(resu))
 
 
