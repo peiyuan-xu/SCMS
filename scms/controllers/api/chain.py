@@ -43,18 +43,18 @@ class ChainController(object):
 
         chain_dao = ChainDao()
         name = name.strip().encode('utf-8')
-        chain_dict = chain_dao.get_chain_by_name(name)
-        if not chain_dict:
+        chain = chain_dao.get_chain_by_name(name)
+        if not chain:
             pecan.abort(404, 'Chain not found')
-        return {'chain': chain_dict}
+        return {'chain': chain.to_dict()}
 
     @expose(template='json')
     def list(self):
         chain_dao = ChainDao()
-        chain_list = chain_dao.list_chain_by_attr({})
-        if not chain_list:
+        chains_dict = chain_dao.list_chain_by_attr({})
+        if not chains_dict:
             pecan.abort(404, 'Chain not found')
-        return {'chains': chain_list}
+        return {'chains': chains_dict}
 
     @expose(template='json')
     def delete(self, name):

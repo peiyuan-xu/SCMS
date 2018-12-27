@@ -53,11 +53,12 @@ class ChainDao(BaseDAO):
 
     def get_chain_by_name(self, chain_name):
         filter_dict = {'name': chain_name}
-        chain = self.get_resource_by_attr(models.Chain, filter_dict)
-        return chain.to_dict()
+        return self.get_resource_by_attr(models.Chain, filter_dict)
 
     def list_chain_by_attr(self, filter_dict):
         chains = self.list_resources_by_attr(models.Chain, filter_dict)
+        if not chains:
+            return []
         return [chain.to_dict() for chain in chains]
 
 
@@ -102,7 +103,10 @@ class ServiceDao(BaseDAO):
         return self.update_resource(models.Service, resu['id'], update_dict)
 
     def list_service_by_attr(self, filter_dict):
-        return self.list_resources_by_attr(models.Service, filter_dict)
+        services = self.list_resources_by_attr(models.Service, filter_dict)
+        if not services:
+            return []
+        return [service.to_dict() for service in services]
 
 
 class QueueMessageDao(BaseDAO):
@@ -229,7 +233,10 @@ class ImageDAO(BaseDAO):
             raise exceptions.ResourceNotFound(models.Service, service_name)
 
         filter = {'service_id': service['id']}
-        return self.list_resources_by_attr(models.Image, filter)
+        images = self.list_resources_by_attr(models.Image, filter)
+        if not images:
+            return []
+        return [image.to_dict() for image in images]
 
 
 class InstanceDAO(BaseDAO):
@@ -258,11 +265,17 @@ class InstanceDAO(BaseDAO):
             raise exceptions.ResourceNotFound(models.Service, chain_name)
 
         filter = {'service_id': service['id'], 'chain_id': chain['id']}
-        return self.list_resources_by_attr(models.Instance, filter)
+        instances = self.list_resources_by_attr(models.Instance, filter)
+        if not instances:
+            return []
+        return [instance.to_dict() for instance in instances]
 
     def list_instance_by_serviceid_and_chain_id(self, service_id, chain_id):
         filter = {'service_id': service_id, 'chain_id': chain_id}
-        return self.list_resources_by_attr(models.Instance, filter)
+        instances = self.list_resources_by_attr(models.Instance, filter)
+        if not instances:
+            return []
+        return [instance.to_dict() for instance in instances]
 
     def delete_instance_by_instanceid(self, instance_id):
         filter = {'container_id': instance_id}

@@ -2,10 +2,12 @@ from pecan import expose, redirect
 from webob.exc import status_map
 
 from scms.controllers.api import chain
+from scms.controllers.api import service
 
 
 class RootController(object):
     chain = chain.ChainController()
+    service = service.ServiceController()
 
     @expose(generic=True, template='index.html')
     def index(self):
