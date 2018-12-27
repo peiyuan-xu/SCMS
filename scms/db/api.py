@@ -226,6 +226,12 @@ class ImageDAO(BaseDAO):
         dict = {'last': last}
         self.update_resource(models.Image, res['id'], dict)
 
+    def list_images(self, filter_dict):
+        images = self.list_resources_by_attr(models.Image, filter_dict)
+        if not images:
+            return []
+        return [image.to_dict() for image in images]
+
     def list_images_by_service(self, service_name):
         service_dao = ServiceDao()
         service = service_dao.get_service_by_name(service_name)
