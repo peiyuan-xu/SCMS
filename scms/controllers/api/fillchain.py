@@ -3,18 +3,19 @@
 """
 @author: zhuangxu
 @email: zhuangxu0@gmail.com
-@time: 2018/12/25 16:18
+@time: 2018/12/28 11:21
 @desc:
 """
+
 import pecan
 from pecan import expose
 
 
 from scms.common import exceptions
-from scms.db.api import ChainDao
+from scms.db.api import ChainWithServiceDAO
 
 
-class ChainController(object):
+class FillChainController(object):
 
     @expose(template='json')
     def post(self, **kw):
@@ -55,16 +56,6 @@ class ChainController(object):
         if not chains_dict:
             pecan.abort(404, 'Chain not found')
         return {'chains': chains_dict}
-
-    @expose(template='json')
-    def listlink(self, name):
-        if name == '':
-            pecan.abort(400, "Request body chain'name not found")
-
-        name = name.strip().encode('utf-8')
-        chain_dao = ChainDao()
-        links = chain_dao.list_chain_link(name)
-        return {name: links}
 
     @expose(template='json')
     def delete(self, name):

@@ -61,6 +61,33 @@ class ChainDao(BaseDAO):
             return []
         return [chain.to_dict() for chain in chains]
 
+    def list_chain_link(self, chain_name):
+        filter_dict = {'name': chain_name}
+        chain = self.get_resource_by_attr(models.Chain, filter_dict)
+        if not chain or len(chain.chain_with_service) <= 0:
+            return []
+
+        num = len(chain.chain_with_service)
+        links = []
+        head_service = ''
+        service_next = {}
+        for link in chain.chain_with_service:
+            if link['head']:
+                head_service = link['service']['name']
+            if link['next_service_id']:
+                service_dao = ServiceDao()
+                serv = service_dao.get_service_by_id(link['next_service_id'])
+                if not serv:
+                    raise exceptions.ResourceNotFound(models.Service, link['next_service_id'])
+                service_next[link['service']['name']] = serv['name']
+
+        links.append(head_service)
+        for i in range(num - 1):
+            tmp_service = service_next[links[-1]]
+            links.append(tmp_service)
+
+        return links
+
 
 class ServiceDao(BaseDAO):
 
@@ -155,7 +182,7 @@ class QueueMessageDao(BaseDAO):
 
 class ChainWithServiceDAO(BaseDAO):
 
-    def create_chain_with_service(self, chain_name, service_name, head=False):
+    def create_chain_with_service(self, chain_name, service_name, head=False, next_service_name=None):
         chian_dao = ChainDao()
         chain = chian_dao.get_chain_by_name(chain_name)
         if not chain:
@@ -166,6 +193,13 @@ class ChainWithServiceDAO(BaseDAO):
             raise exceptions.ResourceNotFound(models.Service, service_name)
         chain_with_service_dict = {'chain_id': chain['id'],
                                    'service_id': service['id'], 'head': head}
+
+        if next_service_name:
+            next_service = service_dao.get_service_by_name(next_service_name)
+            if not next_service:
+                raise exceptions.ResourceNotFound(models.Service, next_service_name)
+            chain_with_service_dict['next_service_id'] = next_service['id']
+
         return self.create_resource(models.ChainWithService, chain_with_service_dict)
 
     def delete_chain_with_service(self, chain_name, service_name):
@@ -184,7 +218,7 @@ class ChainWithServiceDAO(BaseDAO):
             raise exceptions.ResourceNotFound(models.ChainWithService, "")
         return self.delete_resource(models.ChainWithService, res['id'])
 
-    def get_exit_with_chain_service(self, chain_name, service_name):
+    def get_chainlink_by_chain_service(self, chain_name, service_name):
         chain_dao = ChainDao()
         chain = chain_dao.get_chain_by_name(chain_name)
         if not chain:

@@ -78,6 +78,13 @@ class ChainDAOTest(BaseTestCase):
         print(resu)
         self.assertEqual(2, len(resu))
 
+    def test_list_chain_link(self):
+        # have added data in the table of chain with service
+        # in the unit test of chain with service
+        chain_dao = ChainDao()
+        chainlink = chain_dao.list_chain_link("chain1")
+        print(chainlink)
+
 
 if __name__ == '__main__':
     unittest.main()

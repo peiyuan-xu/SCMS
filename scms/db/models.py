@@ -68,11 +68,12 @@ class QueueMessage(ModelBase, DictBase):
 
 class ChainWithService(ModelBase, DictBase):
     __tablename__ = 'chainwithservice'
-    attributes = ['id', 'chain_id', 'service_id']
+    attributes = ['id', 'chain_id', 'service_id', 'head', 'next_service_id']
     id = Column('id', String(length=36), primary_key=True)
     chain_id = Column('chain_id', String(length=36), ForeignKey('chain.id'))
     service_id = Column('service_id', String(length=36), ForeignKey('service.id'))
     head = Column('head', Boolean, default=False)
+    next_service_id = Column('next_service_id', String(length=36))
     # chain = relationship("Chain", backref="chainwithservice")
     # service = relationship("Service", backref="chainwithservice")
 
