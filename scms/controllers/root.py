@@ -2,6 +2,7 @@ from pecan import expose, redirect
 from webob.exc import status_map
 
 from scms.controllers.api import chain
+from scms.controllers.api import chainlink
 from scms.controllers.api import image
 from scms.controllers.api import service
 
@@ -10,6 +11,7 @@ class RootController(object):
     chain = chain.ChainController()
     service = service.ServiceController()
     image = image.ImageController()
+    chainlink = chainlink.ChainLinkController()
 
     @expose(generic=True, template='index.html')
     def index(self):

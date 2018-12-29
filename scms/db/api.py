@@ -61,33 +61,6 @@ class ChainDao(BaseDAO):
             return []
         return [chain.to_dict() for chain in chains]
 
-    def list_chain_link(self, chain_name):
-        filter_dict = {'name': chain_name}
-        chain = self.get_resource_by_attr(models.Chain, filter_dict)
-        if not chain or len(chain.chain_with_service) <= 0:
-            return []
-
-        num = len(chain.chain_with_service)
-        links = []
-        head_service = ''
-        service_next = {}
-        for link in chain.chain_with_service:
-            if link['head']:
-                head_service = link['service']['name']
-            if link['next_service_id']:
-                service_dao = ServiceDao()
-                serv = service_dao.get_service_by_id(link['next_service_id'])
-                if not serv:
-                    raise exceptions.ResourceNotFound(models.Service, link['next_service_id'])
-                service_next[link['service']['name']] = serv['name']
-
-        links.append(head_service)
-        for i in range(num - 1):
-            tmp_service = service_next[links[-1]]
-            links.append(tmp_service)
-
-        return links
-
 
 class ServiceDao(BaseDAO):
 
@@ -201,6 +174,68 @@ class ChainWithServiceDAO(BaseDAO):
             chain_with_service_dict['next_service_id'] = next_service['id']
 
         return self.create_resource(models.ChainWithService, chain_with_service_dict)
+
+    def create_chain_link(self, chain_name, link_list):
+        # Only when the chain link doesn't exist
+        chian_dao = ChainDao()
+        chain = chian_dao.get_chain_by_name(chain_name)
+        if not chain:
+            raise exceptions.ResourceNotFound(models.Chain, chain_name)
+
+        filter = {'chain_id': chain['id']}
+        exist_links = self.list_resources_by_attr(models.ChainWithService, filter)
+        if exist_links:
+            raise exceptions.ResourceExist(models.ChainWithService, chain_name)
+
+        # when the chain link not exist, we can add chain link in a list
+        num = len(link_list)
+        service_dao = ServiceDao()
+        try:
+            for i in range(num):
+                tmp_service = link_list[i]
+                service = service_dao.get_service_by_name(tmp_service)
+                if not service:
+                    raise exceptions.ResourceNotFound(models.Service, tmp_service)
+
+                link_dict = {'chain_id': chain['id'], 'service_id': service['id']}
+                if i == 0:
+                    link_dict['head'] = True
+                if i != (num - 1):
+                    next_service = service_dao.get_service_by_name(link_list[i + 1])
+                    if not next_service:
+                        raise exceptions.ResourceNotFound(models.Service, link_list[i + 1])
+                    link_dict['next_service_id'] = next_service['id']
+
+                self.create_resource(models.ChainWithService, link_dict)
+        except Exception:
+            raise exceptions.DBError(models.ChainWithService, chain_name)
+
+    def list_chain_link(self, chain_name):
+        filter_dict = {'name': chain_name}
+        chain = self.get_resource_by_attr(models.Chain, filter_dict)
+        if not chain or len(chain.chain_with_service) <= 0:
+            return []
+
+        num = len(chain.chain_with_service)
+        links = []
+        head_service = ''
+        service_next = {}
+        for link in chain.chain_with_service:
+            if link['head']:
+                head_service = link['service']['name']
+            if link['next_service_id']:
+                service_dao = ServiceDao()
+                serv = service_dao.get_service_by_id(link['next_service_id'])
+                if not serv:
+                    raise exceptions.ResourceNotFound(models.Service, link['next_service_id'])
+                service_next[link['service']['name']] = serv['name']
+
+        links.append(head_service)
+        for i in range(num - 1):
+            tmp_service = service_next[links[-1]]
+            links.append(tmp_service)
+
+        return links
 
     def delete_chain_with_service(self, chain_name, service_name):
         chian_dao = ChainDao()

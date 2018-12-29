@@ -79,3 +79,11 @@ class EndpointNotAvailable(COCSException):
     def __init__(self, service, url):
         super(EndpointNotAvailable, self).__init__(service=service, url=url)
 
+
+class DBError(COCSException):
+    message = "Resource %(resource_type)s: %(unique_key)s "
+
+    def __init__(self, model, unique_key):
+        resource_type = model.__name__.lower()
+        super(ResourceExist, self).__init__(resource_type=resource_type,
+                                            unique_key=unique_key)

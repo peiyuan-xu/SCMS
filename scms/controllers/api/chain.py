@@ -57,16 +57,6 @@ class ChainController(object):
         return {'chains': chains_dict}
 
     @expose(template='json')
-    def listlink(self, name):
-        if name == '':
-            pecan.abort(400, "Request body chain'name not found")
-
-        name = name.strip().encode('utf-8')
-        chain_dao = ChainDao()
-        links = chain_dao.list_chain_link(name)
-        return {name: links}
-
-    @expose(template='json')
     def delete(self, name):
         if name == '':
             pecan.abort(400, "Request body chain'name not found")

@@ -57,6 +57,26 @@ class QueueWithServiceDAOTest(BaseTestCase):
         res = chain_with_service_dao.get_chainlink_by_chain_service('chain1', 'serviceB')
         self.assertFalse(res['head'])
 
+    def test_create_chain_link(self):
+        chain1 = {'name': "chain1"}
+        chain2 = {'name': "chain2"}
+        chain_dao = ChainDao()
+        chain_dao.create_chain(chain1)
+        chain_dao.create_chain(chain2)
+
+        serviceA = {'name': "serviceA"}
+        serviceB = {'name': "serviceB"}
+        service_dao = ServiceDao()
+        service_dao.create_service(serviceA)
+        service_dao.create_service(serviceB)
+
+        chain_link_dao = ChainWithServiceDAO()
+        chain_link_dao.create_chain_link('chain1', ['serviceA', 'serviceB'])
+
+        chain_link = chain_link_dao.list_chain_link('chain1')
+        print(chain_link)
+        self.assertEqual(2, len(chain_link))
+
 
 if __name__ == '__main__':
     unittest.main()
