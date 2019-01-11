@@ -133,7 +133,7 @@ class QueueMessageDao(BaseDAO):
                               'message_number': message_number, 'timestamp': now_time}
         return self.create_resource(models.QueueMessage, queue_message_dict)
 
-    def list_message_by_chain_and_service(self, service_name, chain_name):
+    def list_message_by_chain_and_service(self, service_name, chain_name, page_size=100):
         # select latest 100 rows
         chain = self.chain_dao.get_chain_by_name(chain_name)
         if not chain:
@@ -144,7 +144,7 @@ class QueueMessageDao(BaseDAO):
             raise exceptions.ResourceNotFound(models.Service, service_name)
 
         dict = {'chain_id': chain['id'], 'service_id': service['id']}
-        res_list = self.paginate_list_first_message_page(models.QueueMessage, dict)
+        res_list = self.paginate_list_first_message_page(models.QueueMessage, dict, page_size)
         return res_list
 
     def list_message_by_chainid_and_serviceid(self, chain_id, service_id):

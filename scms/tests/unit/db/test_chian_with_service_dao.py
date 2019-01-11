@@ -64,18 +64,21 @@ class QueueWithServiceDAOTest(BaseTestCase):
         chain_dao.create_chain(chain1)
         chain_dao.create_chain(chain2)
 
-        serviceA = {'name': "serviceA"}
-        serviceB = {'name': "serviceB"}
+        books = {'name': "books"}
+        reviews = {'name': "reviews"}
+        score = {'name': "score"}
         service_dao = ServiceDao()
-        service_dao.create_service(serviceA)
-        service_dao.create_service(serviceB)
+        service_dao.create_service(books)
+        service_dao.create_service(reviews)
+        service_dao.create_service(score)
 
         chain_link_dao = ChainWithServiceDAO()
-        chain_link_dao.create_chain_link('chain1', ['serviceA', 'serviceB'])
+        chain_link_dao.create_chain_link('chain1', ['books', 'reviews', 'score'])
 
         chain_link = chain_link_dao.list_chain_link('chain1')
         print(chain_link)
-        self.assertEqual(2, len(chain_link))
+        self.assertEqual(3, len(chain_link))
+        chain_link_dao.create_chain_link('chain2', ['books', 'score'])
 
 
 if __name__ == '__main__':

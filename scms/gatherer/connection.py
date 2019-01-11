@@ -22,15 +22,13 @@ def _init_client():
     global _LOCK
     with _LOCK:
         global RABBITMQ_CLIENT
-        if not RABBITMQ_CLIENT or not RABBITMQ_CLIENT.is_alive():
-            RABBITMQ_CLIENT = Client('localhost:15672', 'guest', 'guest')
+        if not RABBITMQ_CLIENT:
+            RABBITMQ_CLIENT = Client('192.168.1.220:15672', 'scms', 'scms')
 
 
 def get_rabbitmq_client():
     global RABBITMQ_CLIENT
-    if not RABBITMQ_CLIENT or not RABBITMQ_CLIENT.is_alive():
+    if not RABBITMQ_CLIENT:
         _init_client()
 
-    if not RABBITMQ_CLIENT.is_alive():
-        raise RabbitMQClientDead()
     return RABBITMQ_CLIENT

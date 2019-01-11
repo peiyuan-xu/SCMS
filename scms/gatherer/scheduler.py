@@ -19,16 +19,20 @@ def gather_message_count():
     gather_message.get_message_count_in_queues()
 
 
-def add_message_count_to_db():
-    for key, value in gather_message.queues_mess_count_dict.items():
+def add_message_count_to_db(queue_length_dict={}):
+    for key, value in queue_length_dict.items():
         key_list = key.split('_')
-        service_name = key_list[0]
-        chain_name = key_list[1]
+        chain_name = key_list[0]
+        service_name = key_list[1]
         queue_message_dao.create_queue_message(service_name, chain_name, value)
 
 
 def loop_gather_message_count():
-    # gathering message count
+    # gathering message queues length
+    queue_length_dict = gather_message.get_message_count_in_queues()
+    # add queue length to db
+    add_message_count_to_db(queue_length_dict)
+
     t = time.localtime()
     t_start = time.strftime(con.TIME_FORMAT, t)
     print("Start time ", t_start)
