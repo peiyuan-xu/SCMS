@@ -36,7 +36,8 @@ class ImageDAOTest(BaseTestCase):
         image_dao.create_image("serviceA", image_name)
 
         image_name = "image_v2"
-        image_dao.create_image("serviceA", image_name, True)
+        command = ''
+        image_dao.create_image("serviceA", image_name, command, True)
 
         res = image_dao.get_image_by_name(image_name)
         self.assertTrue(res['last'])

@@ -50,7 +50,8 @@ class ZunHandleTest(BaseTestCase):
     def test_create_container(self):
         name = 'test_name_2'
         image = 'cirros'
-        command = 'ping -c 4 8.8.8.8'
+        # using array for command
+        command = ['ping', '8.8.8.8']
 
         zun_handle = ZunHandle()
         res = zun_handle.create_container(name=name,

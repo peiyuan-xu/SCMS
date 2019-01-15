@@ -80,10 +80,11 @@ class ChainWithService(ModelBase, DictBase):
 
 class Image(ModelBase, DictBase):
     __tablename__ = 'image'
-    attributes = ['id', 'service_id', 'image_name', 'last']
+    attributes = ['id', 'service_id', 'image_name', 'command', 'last']
     id = Column('id', String(length=36), primary_key=True)
     service_id = Column('service_id', String(length=36), ForeignKey('service.id'))
-    image_name = Column('image_name', String(length=36), unique=True, nullable=False)
+    image_name = Column('image_name', String(length=36), nullable=False)
+    command = Column('command', String(length=128))
     last = Column('last', Boolean, default=False)
 
 

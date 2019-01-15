@@ -268,12 +268,12 @@ class ChainWithServiceDAO(BaseDAO):
 
 
 class ImageDAO(BaseDAO):
-    def create_image(self, service_name, image_name, last=False):
+    def create_image(self, service_name, image_name, command, last=False):
         service_dao = ServiceDao()
         service = service_dao.get_service_by_name(service_name)
         if not service:
             raise exceptions.ResourceNotFound(models.Service, service_name)
-        dict = {'service_id': service['id'], 'image_name': image_name, 'last': last}
+        dict = {'service_id': service['id'], 'image_name': image_name, 'command': command, 'last': last}
         try:
             res = self.create_resource(models.Image, dict)
         except IntegrityError:
@@ -287,6 +287,17 @@ class ImageDAO(BaseDAO):
     def get_image_by_name(self, image_name):
         filter = {'image_name': image_name}
         return self.get_resource_by_attr(models.Image, filter)
+
+    def get_last_image_by_service(self, service_name):
+        service_dao = ServiceDao()
+        service = service_dao.get_service_by_name(service_name)
+        if not service:
+            raise exceptions.ResourceNotFound(models.Service, service_name)
+        filter = {'service_id': service['id'], 'last': True}
+        images = self.list_resources_by_attr(models.Image, filter)
+        if not images:
+            raise exceptions.ResourceNotFound(models.Image, service_name)
+        return images[0]
 
     def update_image_last(self, image_name, last):
         res = self.get_image_by_name(image_name)

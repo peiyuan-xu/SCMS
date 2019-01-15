@@ -104,4 +104,4 @@ class BaseDAO:
     def paginate_list_first_message_page(self, model, filter, page_size=100):
         session = common.get_session()
         return session.query(model).filter_by(**filter)\
-            .order_by(model.id.desc()).limit(page_size).all()
+            .order_by(model.timestamp.desc()).limit(page_size).all()

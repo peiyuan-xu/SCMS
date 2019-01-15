@@ -24,6 +24,7 @@ class ImageController(object):
         image = kw['image']
         name = image.get('name', '').strip().encode("utf-8")
         service_name = image.get('service', '').strip().encode("utf-8")
+        command = image.get('command', '').strip().encode("utf-8")
         # print('::' + name)
         # print('type:' + str(type(name)))
         if name == '' or service_name == '':
@@ -34,7 +35,7 @@ class ImageController(object):
             last = image.get('last').strip().encode('utf-8') == 'True'
         image_dao = ImageDAO()
         try:
-            new_iamge = image_dao.create_image(service_name, name, last)
+            new_iamge = image_dao.create_image(service_name, name, command, last)
         except exceptions.ResourceExist as e:
             print(e)
             pecan.abort(500, 'Failed to create image')

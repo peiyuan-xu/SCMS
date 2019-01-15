@@ -12,7 +12,9 @@ import time
 import numpy as np
 
 from scms.common import constants as con
+from scms.db.api import ImageDAO
 from scms.db.api import QueueMessageDao
+from scms.db import common
 from scms.gatherer.gather_messages import GatherMessages
 from scms.zun_gw.zun_handle import ZunHandle
 
@@ -41,7 +43,29 @@ def forecast(raw_data_list):
     pre_mean = (pre_next_one + pre_next_two)/2
     # print("预测值：" + str(pre_next_one) + ", " + str(pre_next_two) + " -> " + str(pre_mean))
 
-    return pre_mean > raw_data_list[-1]
+    return pre_mean > 0 and pre_mean >= raw_data_list[-1]
+
+
+def auto_add_container(chain_name, servie_name):
+    image_dao = ImageDAO()
+    # image is not null
+    image = image_dao.get_last_image_by_service(servie_name)
+    zun_handle = ZunHandle()
+    name = chain_name + servie_name + common.generate_uuid()
+    image_name = image['image_name']
+    command = image['command']
+
+    # command = 'python SCMSServiceDemo/books.py -s 192.168.1.220 -c chain1'
+    rabbitMQ_server = '192.168.1.220'
+    comm_list = command.split()
+    comm_tail = ['-s', rabbitMQ_server, '-c', chain_name]
+    comm_list.extend(comm_tail)
+
+    print('\n add a new container name: ' + name)
+    res = zun_handle.create_container(name=name,
+                                      image=image_name,
+                                      command=comm_list)
+    print(res)
 
 
 def loop_auto_scaling_container():
@@ -51,17 +75,20 @@ def loop_auto_scaling_container():
     for key, value in queue_length_dict.items():
         # auto scaling every type of service
         key_list = key.split('_')
-        service_name = key_list[0]
-        chain_name = key_list[1]
+        chain_name = key_list[0]
+        service_name = key_list[1]
         queue_length_list = queue_message_dao.list_message_by_chain_and_service(
             service_name, chain_name, page_size)
         if queue_length_list:
-            need_scaling = forecast(queue_length_list)
+            queue_length_data_list = [queue.message_number for queue in queue_length_list]
+            queue_length_data_list.reverse()
+            need_scaling = forecast(queue_length_data_list)
+            print('chain: ' + chain_name + '  service: ' + service_name + '  queue length')
+            print(queue_length_data_list)
             if need_scaling:
+                print('---need auto scaling---')
                 # call zun gateway to add new container
-                pass
-
-
+                auto_add_container(chain_name, service_name)
 
     Timer(con.SCALING_TIME_INTERVAL, loop_auto_scaling_container, ()) \
         .start()
@@ -69,7 +96,7 @@ def loop_auto_scaling_container():
 
 gather_message = GatherMessages()
 queue_message_dao = QueueMessageDao()
-
-# if __name__ == '__main__':
-#     raw_data_list = [1,2,6,8,10,9,7]
-#     forecast(raw_data_list)
+t_auto_start = time.localtime()
+t_gather_start = time.strftime(con.TIME_FORMAT, t_auto_start)
+print("Start auto scaling, time : ", t_gather_start)
+Timer(con.SCALING_TIME_INTERVAL, loop_auto_scaling_container, ()).start()
