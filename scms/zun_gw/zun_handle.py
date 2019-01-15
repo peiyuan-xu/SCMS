@@ -6,6 +6,8 @@
 @time: 2018/11/15 10:51
 @desc:
 """
+import time
+
 from requests import exceptions as r_exceptions
 
 from scms.common import exceptions as c_excp
@@ -36,6 +38,23 @@ class ZunHandle:
         except r_exceptions.ConnectTimeout:
             raise c_excp.EndpointNotAvailable('zun',
                                               self.client.client.management_url)
+
+    def start_container(self, id):
+        try:
+            return getattr(self.client, ZunHandle.resource).start(id)
+        except r_exceptions.ConnectTimeout:
+            raise c_excp.EndpointNotAvailable('zun',
+                                              self.client.client.management_url)
+
+    def create_and_start_container(self, *args, **kwargs):
+        container = self.create_container(*args, **kwargs)
+        while 'Creating' == container.get('status'):
+            time.sleep(2)
+            container = self.get_container(container['uuid'])
+
+        self.start_container(container['uuid'])
+        container = self.get_container(container['uuid'])
+        return container
 
     def get_container(self, resource_id):
         try:

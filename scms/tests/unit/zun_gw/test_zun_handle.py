@@ -62,6 +62,22 @@ class ZunHandleTest(BaseTestCase):
         ress = zun_handle.list_containers(f)
         self.assertEqual(ress[0]['name'], name)
 
+    def test_create_and_start_container(self):
+        name = 'test_name_1_15'
+        image = 'cirros'
+        # using array for command
+        command = ['ping', '8.8.8.8']
+
+        zun_handle = ZunHandle()
+        res = zun_handle.create_and_start_container(name=name,
+                                                    image=image,
+                                                    command=command)
+        print(res)
+        f = {'name': name}
+        ress = zun_handle.list_containers(f)
+        self.assertEqual(ress[0]['name'], name)
+        self.assertEqual(res[0]['status'], 'Running')
+
     def test_delete_container(self):
         name = 'test_name_3'
         image = 'cirros'

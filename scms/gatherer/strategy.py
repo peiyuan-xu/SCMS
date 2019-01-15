@@ -61,10 +61,10 @@ def auto_add_container(chain_name, servie_name):
     comm_tail = ['-s', rabbitMQ_server, '-c', chain_name]
     comm_list.extend(comm_tail)
 
-    print('\n add a new container name: ' + name)
-    res = zun_handle.create_container(name=name,
-                                      image=image_name,
-                                      command=comm_list)
+    print('\n Add a new container name: ' + name)
+    res = zun_handle.create_and_start_container(name=name,
+                                                image=image_name,
+                                                command=comm_list)
     print(res)
 
 
