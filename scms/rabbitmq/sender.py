@@ -9,7 +9,7 @@ and the client of SCMS can recieve the message.
 """
 
 from scms.common import exceptions
-from scms.gatherer import connection
+from scms.scheduler import connection
 
 
 class Sender(object):

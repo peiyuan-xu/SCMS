@@ -9,8 +9,8 @@
 import time
 import unittest
 
-from scms.gatherer.strategy import auto_add_container
-from scms.gatherer.strategy import forecast
+from scms.scheduler.strategy import auto_add_container
+from scms.scheduler.strategy import forecast
 from scms.tests.base import BaseTestCase
 
 

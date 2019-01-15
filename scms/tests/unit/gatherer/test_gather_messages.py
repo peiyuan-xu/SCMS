@@ -11,8 +11,8 @@ import time
 import unittest
 
 from scms.common import constants as con
-from scms.gatherer import connection as conn
-from scms.gatherer.gather_messages import GatherMessages
+from scms.scheduler import connection as conn
+from scms.scheduler.gather_messages import GatherMessages
 from scms.tests.base import BaseTestCase
 
 
