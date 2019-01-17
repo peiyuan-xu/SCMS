@@ -64,9 +64,26 @@ class ZunHandle:
             raise c_excp.EndpointNotAvailable('zun',
                                               self.client.client.management_url)
 
+    def stop_container(self, resource_id, timeout=0):
+        try:
+            return getattr(self.client, ZunHandle.resource).stop(resource_id, timeout)
+        except r_exceptions.ConnectTimeout:
+            raise c_excp.EndpointNotAvailable('zun',
+                                              self.client.client.management_url)
+
     def delete_container(self, resource_id):
         try:
             return getattr(self.client, ZunHandle.resource).delete(resource_id)
         except r_exceptions.ConnectTimeout:
             raise c_excp.EndpointNotAvailable('zun',
                                               self.client.client.management_url)
+
+    def stop_and_delete_container(self, resource_id):
+        # resource_id is uuid
+        self.stop_container(resource_id)
+        container = self.get_container(resource_id)
+        while 'Running' == container.get('status'):
+            time.sleep(2)
+            container = self.get_container(container['uuid'])
+
+        return self.delete_container(container['uuid'])

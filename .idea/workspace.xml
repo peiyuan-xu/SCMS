@@ -13,106 +13,82 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="scheduler.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scms/gatherer/scheduler.py">
+      <file leaf-file-name="connection.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scms/scheduler/connection.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="25" column="10" lean-forward="false" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+            <state relative-caret-position="143">
+              <caret line="22" column="15" lean-forward="true" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="strategy.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/scms/gatherer/strategy.py">
+      <file leaf-file-name="statistics.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scms/scheduler/statistics.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="59" column="12" lean-forward="false" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
+            <state relative-caret-position="103">
+              <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
               <folding>
-                <element signature="e#123#150#0" expanded="true" />
+                <element signature="e#125#152#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_zun_handle.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scms/tests/unit/zun_gw/test_zun_handle.py">
+      <file leaf-file-name="strategy.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scms/scheduler/strategy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="78" column="53" lean-forward="true" selection-start-line="78" selection-start-column="53" selection-end-line="78" selection-end-column="53" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="zun_handle.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scms/zun_gw/zun_handle.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="55" column="35" lean-forward="false" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
+            <state relative-caret-position="189">
+              <caret line="102" column="18" lean-forward="true" selection-start-line="102" selection-start-column="18" selection-end-line="102" selection-end-column="18" />
               <folding>
-                <element signature="e#125#136#0" expanded="true" />
+                <element signature="e#123#144#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="zun_client.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/scms/zun_gw/zun_client.py">
+      <file leaf-file-name="init_db.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scms/tests/unit/db/init_db.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="74">
-              <caret line="25" column="29" lean-forward="false" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+            <state relative-caret-position="51">
+              <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+              <folding>
+                <element signature="e#124#156#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scms/db/api.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="328">
+              <caret line="368" column="30" lean-forward="true" selection-start-line="368" selection-start-column="30" selection-end-line="368" selection-end-column="30" />
+              <folding>
+                <element signature="e#125#140#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scms/db/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="90" column="6" lean-forward="false" selection-start-line="90" selection-start-column="6" selection-end-line="90" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="client.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../environ/Liming/Lib/site-packages/zunclient/client.py">
+      <file leaf-file-name="basedao.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scms/db/basedao.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="65" column="4" lean-forward="false" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="client.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../environ/Liming/Lib/site-packages/zunclient/v1/client.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="128" column="48" lean-forward="false" selection-start-line="128" selection-start-column="48" selection-end-line="128" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="containers.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../environ/Liming/Lib/site-packages/zunclient/v1/containers.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-667">
-              <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../environ/Liming/Lib/site-packages/zunclient/common/utils.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="208" column="0" lean-forward="false" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../environ/Liming/Lib/site-packages/zunclient/common/base.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="193">
+              <caret line="51" column="8" lean-forward="false" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+              <folding>
+                <element signature="e#154#195#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -133,6 +109,8 @@
       <find>get_resource_by_attr</find>
       <find>id</find>
       <find>chain: chain1  service: books</find>
+      <find>Inst</find>
+      <find>ins</find>
     </findStrings>
     <replaceStrings>
       <replace>chain</replace>
@@ -144,7 +122,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/cocs/db/basedao.py" />
         <option value="$PROJECT_DIR$/cocs/db/api.py" />
         <option value="$PROJECT_DIR$/cocs/tests/unit/test_chian_with_service_dao.py" />
         <option value="$PROJECT_DIR$/README.md" />
@@ -187,14 +164,15 @@
         <option value="$PROJECT_DIR$/scms/controllers/api/image.py" />
         <option value="$PROJECT_DIR$/scms/tests/unit/db/test_image_dao.py" />
         <option value="$PROJECT_DIR$/scms/db/api.py" />
-        <option value="$PROJECT_DIR$/scms/db/models.py" />
-        <option value="$PROJECT_DIR$/scms/tests/unit/db/init_db.py" />
         <option value="$PROJECT_DIR$/scms/db/basedao.py" />
         <option value="$PROJECT_DIR$/scms/tests/unit/gatherer/test_strategy.py" />
         <option value="$PROJECT_DIR$/scms/zun_gw/zun_client.py" />
-        <option value="$PROJECT_DIR$/scms/zun_gw/zun_handle.py" />
         <option value="$PROJECT_DIR$/scms/tests/unit/zun_gw/test_zun_handle.py" />
         <option value="$PROJECT_DIR$/scms/gatherer/strategy.py" />
+        <option value="$PROJECT_DIR$/scms/zun_gw/zun_handle.py" />
+        <option value="$PROJECT_DIR$/scms/db/models.py" />
+        <option value="$PROJECT_DIR$/scms/tests/unit/db/init_db.py" />
+        <option value="$PROJECT_DIR$/scms/scheduler/strategy.py" />
       </list>
     </option>
   </component>
@@ -236,26 +214,13 @@
               <item name="SCMS" type="b2602c69:ProjectViewProjectNode" />
               <item name="SCMS" type="462c0819:PsiDirectoryNode" />
               <item name="scms" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SCMS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SCMS" type="462c0819:PsiDirectoryNode" />
-              <item name="scms" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SCMS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SCMS" type="462c0819:PsiDirectoryNode" />
-              <item name="scms" type="462c0819:PsiDirectoryNode" />
               <item name="db" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SCMS" type="b2602c69:ProjectViewProjectNode" />
               <item name="SCMS" type="462c0819:PsiDirectoryNode" />
               <item name="scms" type="462c0819:PsiDirectoryNode" />
-              <item name="gatherer" type="462c0819:PsiDirectoryNode" />
+              <item name="scheduler" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SCMS" type="b2602c69:ProjectViewProjectNode" />
@@ -280,28 +245,6 @@
             </path>
             <path>
               <item name="SCMS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SCMS" type="462c0819:PsiDirectoryNode" />
-              <item name="scms" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="unit" type="462c0819:PsiDirectoryNode" />
-              <item name="gatherer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SCMS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SCMS" type="462c0819:PsiDirectoryNode" />
-              <item name="scms" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="unit" type="462c0819:PsiDirectoryNode" />
-              <item name="zun_gw" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SCMS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SCMS" type="462c0819:PsiDirectoryNode" />
-              <item name="scms" type="462c0819:PsiDirectoryNode" />
-              <item name="zun_gw" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SCMS" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
             <path>
@@ -314,13 +257,6 @@
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
               <item name="&lt; Python 2.7 (Liming) &gt;" type="70bed36:NamedLibraryElementNode" />
               <item name="Lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SCMS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 2.7 (Liming) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SCMS" type="b2602c69:ProjectViewProjectNode" />
@@ -388,7 +324,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.strategy">
+  <component name="RunManager" selected="Python.strategy (1)">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -407,19 +343,37 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="scheduler" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="statistics" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="D:\Data\environ\python\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scms/gatherer" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scms/scheduler" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="SCMS" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scms/gatherer/scheduler.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scms/scheduler/statistics.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="strategy (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="D:\Data\environ\python\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scms/scheduler" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="SCMS" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scms/scheduler/strategy.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -454,46 +408,32 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="COMSCore" />
     </configuration>
-    <configuration name="Unittests for test_strategy.StrategyTest.test_auto_add_container" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for init_db.InitDB" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scms/tests/unit/gatherer" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scms/tests/unit/db" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="SCMS" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_strategy.StrategyTest.test_auto_add_container&quot;" />
+      <option name="_new_target" value="&quot;init_db.InitDB&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     </configuration>
-    <configuration name="Unittests for test_zun_handle.ZunHandleTest.test_create_and_start_container" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for init_db.InitDB.test_init_db" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scms/tests/unit/zun_gw" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scms/tests/unit/db" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="SCMS" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_zun_handle.ZunHandleTest.test_create_and_start_container&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-    </configuration>
-    <configuration name="Unittests for test_zun_handle.ZunHandleTest.test_create_container" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scms/tests/unit/zun_gw" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="SCMS" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_zun_handle.ZunHandleTest.test_create_container&quot;" />
+      <option name="_new_target" value="&quot;init_db.InitDB.test_init_db&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -574,18 +514,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.strategy" />
-      <item index="1" class="java.lang.String" itemvalue="Python.scheduler" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests for test_strategy.StrategyTest.test_auto_add_container" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests for test_zun_handle.ZunHandleTest.test_create_container" />
-      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests for test_zun_handle.ZunHandleTest.test_create_and_start_container" />
+      <item index="1" class="java.lang.String" itemvalue="Python.statistics" />
+      <item index="2" class="java.lang.String" itemvalue="Python.strategy (1)" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests for init_db.InitDB.test_init_db" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests for init_db.InitDB" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.strategy" />
-        <item index="1" class="java.lang.String" itemvalue="Python.scheduler" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests for test_zun_handle.ZunHandleTest.test_create_and_start_container" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests for test_zun_handle.ZunHandleTest.test_create_container" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests for test_strategy.StrategyTest.test_auto_add_container" />
+        <item index="0" class="java.lang.String" itemvalue="Python.strategy (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Python.statistics" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests for init_db.InitDB" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests for init_db.InitDB.test_init_db" />
+        <item index="4" class="java.lang.String" itemvalue="Python.strategy" />
       </list>
     </recent_temporary>
   </component>
@@ -666,21 +606,35 @@
       <option name="project" value="LOCAL" />
       <updated>1547557503345</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Rename statistics.py and strategy.py">
+      <created>1547558668492</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1547558668492</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Tag v1.0,the system runs successfully">
+      <created>1547690379125</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1547690379125</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
+    <history-entry file="Unittests_for_init_db_InitDB - 2019.01.16 at 21h 17m 10s.xml">
+      <configuration name="Unittests for init_db.InitDB" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_for_init_db_InitDB_test_init_db - 2019.01.16 at 21h 17m 03s.xml">
+      <configuration name="Unittests for init_db.InitDB.test_init_db" configurationId="tests" />
+    </history-entry>
     <history-entry file="Unittests_for_test_zun_handle_ZunHandleTest_test_create_and_start_container - 2019.01.15 at 20h 44m 18s.xml">
       <configuration name="Unittests for test_zun_handle.ZunHandleTest.test_create_and_start_container" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_for_test_zun_handle_ZunHandleTest_test_create_and_start_container - 2019.01.15 at 20h 47m 56s.xml">
       <configuration name="Unittests for test_zun_handle.ZunHandleTest.test_create_and_start_container" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_test_zun_handle_ZunHandleTest_test_create_container - 2019.01.15 at 15h 49m 45s.xml">
-      <configuration name="Unittests for test_zun_handle.ZunHandleTest.test_create_container" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_for_test_zun_handle_ZunHandleTest_test_create_container - 2019.01.15 at 15h 52m 48s.xml">
-      <configuration name="Unittests for test_zun_handle.ZunHandleTest.test_create_container" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_for_test_zun_handle_ZunHandleTest_test_create_container - 2019.01.15 at 16h 00m 38s.xml">
       <configuration name="Unittests for test_zun_handle.ZunHandleTest.test_create_container" configurationId="tests" />
@@ -714,16 +668,16 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23586309" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23586309" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294893" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47446457" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39538714" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6771005" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32784185" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48764417" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.44810542" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47116968" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -773,20 +727,22 @@
     <MESSAGE value="Modify the code to enable remote connection of rabbitmq." />
     <MESSAGE value="Add the part of strategy, through this part we can provide Auto-scaling containers." />
     <MESSAGE value="Add api for starting containers through zunclient. Tag: statistics success and auto scaling success." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add api for starting containers through zunclient. Tag: statistics success and auto scaling success." />
+    <MESSAGE value="Rename statistics.py and strategy.py" />
+    <MESSAGE value="Tag v1.0,the system runs successfully" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tag v1.0,the system runs successfully" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/scms/gatherer/strategy.py</url>
-          <line>64</line>
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/scms/tests/unit/zun_gw/test_zun_handle.py</url>
           <line>74</line>
           <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scms/scheduler/strategy.py</url>
+          <line>94</line>
+          <option name="timeStamp" value="64" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -799,7 +755,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="63" />
+      <option name="time" value="65" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -976,16 +932,6 @@ re</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scms/gatherer/connection.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="32" column="0" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <element signature="e#166#182#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../environ/Liming/Lib/site-packages/pymysql/cursors.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
@@ -1059,16 +1005,6 @@ re</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scms/tests/unit/db/init_db.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="26" column="12" lean-forward="true" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="12" />
-          <folding>
-            <element signature="e#124#156#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scms/tests/unit/db/test_instance_dao.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1082,32 +1018,6 @@ re</expression-string>
         <state relative-caret-position="312">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scms/gatherer/gather_messages.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scms/db/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5">
-          <caret line="80" column="6" lean-forward="false" selection-start-line="80" selection-start-column="6" selection-end-line="80" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scms/db/basedao.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3">
-          <caret line="87" column="8" lean-forward="false" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
-          <folding>
-            <element signature="e#154#195#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1155,40 +1065,6 @@ re</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scms/db/api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="296" column="0" lean-forward="false" selection-start-line="296" selection-start-column="0" selection-end-line="296" selection-end-column="0" />
-          <folding>
-            <element signature="e#125#140#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scms/zun_gw/zun_client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret line="25" column="29" lean-forward="false" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../environ/Liming/Lib/site-packages/zunclient/client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="65" column="4" lean-forward="false" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../environ/Liming/Lib/site-packages/zunclient/v1/client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="128" column="48" lean-forward="false" selection-start-line="128" selection-start-column="48" selection-end-line="128" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../environ/Liming/Lib/site-packages/zunclient/common/utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -1205,14 +1081,6 @@ re</expression-string>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../environ/Liming/Lib/site-packages/zunclient/v1/containers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-667">
-          <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scms/tests/unit/zun_gw/test_zun_handle.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
@@ -1221,31 +1089,119 @@ re</expression-string>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../environ/Liming/Lib/site-packages/zunclient/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="65" column="4" lean-forward="false" selection-start-line="65" selection-start-column="4" selection-end-line="65" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../environ/Liming/Lib/site-packages/zunclient/v1/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="128" column="49" lean-forward="false" selection-start-line="128" selection-start-column="49" selection-end-line="128" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scms/zun_gw/zun_client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="25" column="28" lean-forward="false" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../environ/Liming/Lib/site-packages/zunclient/v1/containers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="136" column="25" lean-forward="true" selection-start-line="136" selection-start-column="25" selection-end-line="136" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scms/scheduler/gather_messages.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="17" column="47" lean-forward="true" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scms/zun_gw/zun_handle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="55" column="35" lean-forward="false" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
+        <state relative-caret-position="74">
+          <caret line="68" column="45" lean-forward="true" selection-start-line="68" selection-start-column="45" selection-end-line="68" selection-end-column="45" />
           <folding>
             <element signature="e#125#136#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scms/gatherer/scheduler.py">
+    <entry file="file://$PROJECT_DIR$/scms/tests/unit/db/init_db.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="25" column="10" lean-forward="false" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+        <state relative-caret-position="51">
+          <caret line="22" column="23" lean-forward="true" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+          <folding>
+            <element signature="e#124#156#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scms/db/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="90" column="6" lean-forward="false" selection-start-line="90" selection-start-column="6" selection-end-line="90" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scms/gatherer/strategy.py">
+    <entry file="file://$PROJECT_DIR$/scms/db/basedao.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="59" column="12" lean-forward="false" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
+        <state relative-caret-position="193">
+          <caret line="51" column="8" lean-forward="false" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
           <folding>
-            <element signature="e#123#150#0" expanded="true" />
+            <element signature="e#154#195#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scms/db/api.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="368" column="30" lean-forward="true" selection-start-line="368" selection-start-column="30" selection-end-line="368" selection-end-column="30" />
+          <folding>
+            <element signature="e#125#140#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scms/scheduler/statistics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding>
+            <element signature="e#125#152#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scms/scheduler/strategy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="102" column="18" lean-forward="true" selection-start-line="102" selection-start-column="18" selection-end-line="102" selection-end-column="18" />
+          <folding>
+            <element signature="e#123#144#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scms/scheduler/connection.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="22" column="15" lean-forward="true" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+          <folding />
         </state>
       </provider>
     </entry>
