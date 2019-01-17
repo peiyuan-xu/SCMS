@@ -6,6 +6,7 @@
 @time: 2019/1/7 11:16
 @desc:
 """
+from enum import Enum
 from threading import Timer
 import time
 
@@ -13,10 +14,18 @@ import numpy as np
 
 from scms.common import constants as con
 from scms.db.api import ImageDAO
+from scms.db.api import InstanceDAO
 from scms.db.api import QueueMessageDao
 from scms.db import common
 from scms.scheduler.gather_messages import GatherMessages
 from scms.zun_gw.zun_handle import ZunHandle
+
+
+class ScalingStatus(Enum):
+    Rise = 0
+    Decline = 1
+    Stable = 2
+
 
 # 指数平滑公式
 def exponential_smoothing(alpha, s):
@@ -43,7 +52,12 @@ def forecast(raw_data_list):
     pre_mean = (pre_next_one + pre_next_two)/2
     # print("预测值：" + str(pre_next_one) + ", " + str(pre_next_two) + " -> " + str(pre_mean))
 
-    return pre_mean > 0 and pre_mean >= raw_data_list[-1]
+    if raw_data_list[-1] == 0:
+        return ScalingStatus.Decline
+    elif pre_mean > 0 and pre_mean >= raw_data_list[-1]:
+        return ScalingStatus.Rise
+    else:
+        return ScalingStatus.Stable
 
 
 def auto_add_container(chain_name, servie_name):
@@ -66,6 +80,22 @@ def auto_add_container(chain_name, servie_name):
                                                 image=image_name,
                                                 command=comm_list)
     print(res)
+    # add a instance
+    instance_dao = InstanceDAO()
+    instance = instance_dao.create_instance(servie_name, image['id'], chain_name, res['uuid'])
+    print(instance)
+
+
+def auto_delete_container(chain_name, service_name):
+    # delete a container
+    instance_dao = InstanceDAO()
+    container_runing = instance_dao.list_instance_by_service_and_chain(service_name, chain_name)
+    zun_handle = ZunHandle()
+    if container_runing:
+        delete_uuid = container_runing[0]['container_id']
+        zun_handle.stop_and_delete_container(delete_uuid)
+        print('Delete a Container success, uuid: ' + delete_uuid)
+        instance_dao.delete_instance_by_instanceid(container_runing[0]['container_id'])
 
 
 def loop_auto_scaling_container():
@@ -82,13 +112,17 @@ def loop_auto_scaling_container():
         if queue_length_list:
             queue_length_data_list = [queue.message_number for queue in queue_length_list]
             queue_length_data_list.reverse()
-            need_scaling = forecast(queue_length_data_list)
+            scaling_status = forecast(queue_length_data_list)
             print('chain: ' + chain_name + '  service: ' + service_name + '  queue length')
             print(queue_length_data_list)
-            if need_scaling:
-                print('---need auto scaling---')
+            if scaling_status == ScalingStatus.Rise:
+                print('---Add a container---')
                 # call zun gateway to add new container
                 auto_add_container(chain_name, service_name)
+            elif scaling_status == ScalingStatus.Decline:
+                # delete a container
+                print('---Delete a container---')
+                auto_delete_container(chain_name, service_name)
 
     Timer(con.SCALING_TIME_INTERVAL, loop_auto_scaling_container, ()) \
         .start()

@@ -95,7 +95,7 @@ class Instance(ModelBase, DictBase):
     service_id = Column('service_id', String(length=36), ForeignKey('service.id'))
     image_id = Column('image_id', String(length=36), ForeignKey('image.id'))
     chain_id = Column('chain_id', String(length=36), ForeignKey('chain.id'))
-    container_id = Column('instance_id', String(64), unique=True, nullable=False)
+    container_id = Column('container_id', String(64), unique=True, nullable=False)
     chain = relationship('Chain', backref="instances")
     service = relationship('Service', backref="instances")
 
