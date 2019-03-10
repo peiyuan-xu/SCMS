@@ -13,7 +13,7 @@ RABBITMQ_VHOST = 'scms'
 TIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 
 # Configuration in Gatherer
-GATHER_TIME_INTERVAL = 3
+GATHER_TIME_INTERVAL = 1
 
 # Configuration in auto scaling
-SCALING_TIME_INTERVAL = 5
+SCALING_TIME_INTERVAL = 2

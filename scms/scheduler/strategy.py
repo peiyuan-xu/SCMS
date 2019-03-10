@@ -60,12 +60,12 @@ def forecast(raw_data_list):
         return ScalingStatus.Stable
 
 
-def auto_add_container(chain_name, servie_name):
+def auto_add_container(chain_name, service_name):
     image_dao = ImageDAO()
     # image is not null
-    image = image_dao.get_last_image_by_service(servie_name)
+    image = image_dao.get_last_image_by_service(service_name)
     zun_handle = ZunHandle()
-    name = chain_name + servie_name + common.generate_uuid()
+    name = chain_name + service_name + common.generate_uuid()
     image_name = image['image_name']
     command = image['command']
 
@@ -75,15 +75,18 @@ def auto_add_container(chain_name, servie_name):
     comm_tail = ['-s', rabbitMQ_server, '-c', chain_name]
     comm_list.extend(comm_tail)
 
-    print('\n Add a new container name: ' + name)
+    # print('\n Add a new container name: ' + name)
     res = zun_handle.create_and_start_container(name=name,
                                                 image=image_name,
                                                 command=comm_list)
-    print(res)
+    # print(res)
+    t_add_time = time.localtime()
+    t_add_time = time.strftime(con.TIME_FORMAT, t_add_time)
+    print('Add container, ' + 'Chain: ' + chain_name + '  Service: ' + service_name + '  time:' + t_add_time)
     # add a instance
     instance_dao = InstanceDAO()
-    instance = instance_dao.create_instance(servie_name, image['id'], chain_name, res['uuid'])
-    print(instance)
+    instance = instance_dao.create_instance(service_name, image['id'], chain_name, res['uuid'])
+    # print(instance)
 
 
 def auto_delete_container(chain_name, service_name):
@@ -94,12 +97,16 @@ def auto_delete_container(chain_name, service_name):
     if container_runing:
         delete_uuid = container_runing[0]['container_id']
         zun_handle.stop_and_delete_container(delete_uuid)
-        print('Delete a Container success, uuid: ' + delete_uuid)
+        t_add_time = time.localtime()
+        t_add_time = time.strftime(con.TIME_FORMAT, t_add_time)
+        print('Delete container, ' + 'Chain: ' + chain_name + '  Service: ' + service_name + '  time:' + t_add_time)
+        # print('Delete a Container success, uuid: ' + delete_uuid)
         instance_dao.delete_instance_by_instanceid(container_runing[0]['container_id'])
 
 
 def loop_auto_scaling_container():
     # auto scaling
+    MAX_INSTANCE_NUM_OF_EACH_SERVICE = 5
     page_size = 10
     queue_length_dict = gather_message.get_message_count_in_queues()
     for key, value in queue_length_dict.items():
@@ -113,15 +120,20 @@ def loop_auto_scaling_container():
             queue_length_data_list = [queue.message_number for queue in queue_length_list]
             queue_length_data_list.reverse()
             scaling_status = forecast(queue_length_data_list)
-            print('chain: ' + chain_name + '  service: ' + service_name + '  queue length')
-            print(queue_length_data_list)
+            # print('chain: ' + chain_name + '  service: ' + service_name + '  queue length')
+            # print(queue_length_data_list)
             if scaling_status == ScalingStatus.Rise:
-                print('---Add a container---')
-                # call zun gateway to add new container
-                auto_add_container(chain_name, service_name)
+                instance_dao = InstanceDAO()
+                achieve_max_num = instance_dao.get_count(service_name)
+                if achieve_max_num == MAX_INSTANCE_NUM_OF_EACH_SERVICE:
+                    pass
+                else:
+                    #print('---Add a container---')
+                    # call zun gateway to add new container
+                    auto_add_container(chain_name, service_name)
             elif scaling_status == ScalingStatus.Decline:
                 # delete a container
-                print('---Delete a container---')
+                #print('---Delete a container---')
                 auto_delete_container(chain_name, service_name)
 
     Timer(con.SCALING_TIME_INTERVAL, loop_auto_scaling_container, ()) \

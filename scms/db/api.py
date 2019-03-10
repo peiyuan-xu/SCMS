@@ -368,3 +368,11 @@ class InstanceDAO(BaseDAO):
         # delete one, instace_id is unique
         return self.delete_resource_by_attr(models.Instance, filter)
 
+    def get_instance_num_by_service(self, service_name):
+        service_dao = ServiceDao()
+        service = service_dao.get_service_by_name(service_name)
+        if not service:
+            raise exceptions.ResourceNotFound(models.Service, service_name)
+
+        filter = {'service_id': service['id']}
+        return self.get_count(models.Instance, filter)

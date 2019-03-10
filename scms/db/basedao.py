@@ -43,6 +43,11 @@ class BaseDAO:
             raise exceptions.ResourceNotFound(model, pk_value)
         return res_obj
 
+    def get_count(self, model, filter_dict):
+        session = common.get_session()
+        count = session.query(model).filter_by(**filter_dict).count()
+        return count
+
     def delete_resource(self, model, pk_value):
         res_obj = self._get_resource(model, pk_value)
         session = common.get_session()
