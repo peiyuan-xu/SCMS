@@ -21,6 +21,12 @@ class GatherMessages:
         queues = self.rabbit_client.get_queues(vhost=constants.RABBITMQ_VHOST)
         queue_length_dict = {}
         for queue in queues:
+            name = queue['name']
+            key_list = name.split('_')
+            service_name = key_list[1]
+            if service_name == 'gw':
+                continue
+
             depth = queue['messages']
             # GatherMessages.queues_mess_count_dict[queue['name']] = depth
             queue_length_dict[queue['name']] = depth

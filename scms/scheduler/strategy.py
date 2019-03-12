@@ -76,13 +76,14 @@ def auto_add_container(chain_name, service_name):
     comm_list.extend(comm_tail)
 
     # print('\n Add a new container name: ' + name)
+    t_s = int(time.time()*1000)
     res = zun_handle.create_and_start_container(name=name,
                                                 image=image_name,
                                                 command=comm_list)
     # print(res)
-    t_add_time = time.localtime()
-    t_add_time = time.strftime(con.TIME_FORMAT, t_add_time)
-    print('Add container, ' + 'Chain: ' + chain_name + '  Service: ' + service_name + '  time:' + t_add_time)
+    t_e = int(time.time()*1000)
+    p_dict = {'chain': chain_name, 'service': service_name, 'start_t': t_s, 'end_t': t_e}
+    print('Add Container' + str(p_dict))
     # add a instance
     instance_dao = InstanceDAO()
     instance = instance_dao.create_instance(service_name, image['id'], chain_name, res['uuid'])
@@ -96,10 +97,12 @@ def auto_delete_container(chain_name, service_name):
     zun_handle = ZunHandle()
     if container_runing:
         delete_uuid = container_runing[0]['container_id']
+
+        t_s = int(time.time() * 1000)
         zun_handle.stop_and_delete_container(delete_uuid)
-        t_add_time = time.localtime()
-        t_add_time = time.strftime(con.TIME_FORMAT, t_add_time)
-        print('Delete container, ' + 'Chain: ' + chain_name + '  Service: ' + service_name + '  time:' + t_add_time)
+        t_e = int(time.time() * 1000)
+        p_dict = {'chain': chain_name, 'service': service_name, 'start_t': t_s, 'end_t': t_e}
+        print('Delete Container' + str(p_dict))
         # print('Delete a Container success, uuid: ' + delete_uuid)
         instance_dao.delete_instance_by_instanceid(container_runing[0]['container_id'])
 
@@ -114,6 +117,9 @@ def loop_auto_scaling_container():
         key_list = key.split('_')
         chain_name = key_list[0]
         service_name = key_list[1]
+        if service_name == 'gw':
+            continue
+
         queue_length_list = queue_message_dao.list_message_by_chain_and_service(
             service_name, chain_name, page_size)
         if queue_length_list:
@@ -124,7 +130,7 @@ def loop_auto_scaling_container():
             # print(queue_length_data_list)
             if scaling_status == ScalingStatus.Rise:
                 instance_dao = InstanceDAO()
-                achieve_max_num = instance_dao.get_count(service_name)
+                achieve_max_num = instance_dao.get_instance_num_by_service(service_name)
                 if achieve_max_num == MAX_INSTANCE_NUM_OF_EACH_SERVICE:
                     pass
                 else:
