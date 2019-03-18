@@ -82,8 +82,8 @@ def auto_add_container(chain_name, service_name):
                                                 command=comm_list)
     # print(res)
     t_e = int(time.time()*1000)
-    p_dict = {'chain': chain_name, 'service': service_name, 'start_t': t_s, 'end_t': t_e}
-    print('Add Container' + str(p_dict))
+    p_dict = {'tag': 'add', 'chain': chain_name, 'service': service_name, 'start_t': t_s, 'end_t': t_e}
+    print(str(p_dict) + ',')
     # add a instance
     instance_dao = InstanceDAO()
     instance = instance_dao.create_instance(service_name, image['id'], chain_name, res['uuid'])
@@ -101,15 +101,15 @@ def auto_delete_container(chain_name, service_name):
         t_s = int(time.time() * 1000)
         zun_handle.stop_and_delete_container(delete_uuid)
         t_e = int(time.time() * 1000)
-        p_dict = {'chain': chain_name, 'service': service_name, 'start_t': t_s, 'end_t': t_e}
-        print('Delete Container' + str(p_dict))
+        p_dict = {'tag': 'delete', 'chain': chain_name, 'service': service_name, 'start_t': t_s, 'end_t': t_e}
+        print(str(p_dict) + ',')
         # print('Delete a Container success, uuid: ' + delete_uuid)
         instance_dao.delete_instance_by_instanceid(container_runing[0]['container_id'])
 
 
 def loop_auto_scaling_container():
     # auto scaling
-    MAX_INSTANCE_NUM_OF_EACH_SERVICE = 5
+    MAX_INSTANCE_NUM_OF_EACH_SERVICE = 6
     page_size = 10
     queue_length_dict = gather_message.get_message_count_in_queues()
     for key, value in queue_length_dict.items():
