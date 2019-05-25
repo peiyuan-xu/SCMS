@@ -49,7 +49,7 @@ class ZunHandleTest(BaseTestCase):
 
     def test_create_container(self):
         name = 'test_name_2'
-        image = 'cirros'
+        image = 'lymanxu/scms-servicedemo:v4'
         # using array for command
         command = ['ping', '8.8.8.8']
 
@@ -63,8 +63,8 @@ class ZunHandleTest(BaseTestCase):
         self.assertEqual(ress[0]['name'], name)
 
     def test_create_and_start_container(self):
-        name = 'test_name_1_15'
-        image = 'cirros'
+        name = 'test_name_0524_3'
+        image = 'scmsservice'
         # using array for command
         command = ['ping', '8.8.8.8']
 
@@ -75,6 +75,7 @@ class ZunHandleTest(BaseTestCase):
         print(res)
         f = {'name': name}
         ress = zun_handle.list_containers(f)
+        print(ress)
         self.assertEqual(ress[0]['name'], name)
         self.assertEqual(res[0]['status'], 'Running')
 

@@ -39,16 +39,16 @@ def exponential_smoothing(alpha, s):
 def forecast(raw_data_list):
     np_data_list = np.array(raw_data_list)
     alpha = 0.70
-    s_single = exponential_smoothing(alpha, np_data_list)  # 计算一次指数平滑
-    s_double = exponential_smoothing(alpha, s_single)  # 计算二次指数平滑
+    s_single = exponential_smoothing(alpha, np_data_list)
+    s_double = exponential_smoothing(alpha, s_single)
 
-    a_double = 2 * s_single - s_double  # 计算二次指数平滑的a
-    b_double = (alpha / (1 - alpha)) * (s_single - s_double)  # 计算二次指数平滑的b
+    a_double = 2 * s_single - s_double
+    b_double = (alpha / (1 - alpha)) * (s_single - s_double)
     # print("一次平滑: " + str(a_double))
     # print("二次平滑：" + str(b_double))
 
-    pre_next_one = a_double[-1] + b_double[-1] * 1  # 预测下一年
-    pre_next_two = a_double[-1] + b_double[-1] * 2  # 预测下两年
+    pre_next_one = a_double[-1] + b_double[-1] * 1
+    pre_next_two = a_double[-1] + b_double[-1] * 2
     pre_mean = (pre_next_one + pre_next_two)/2
     # print("预测值：" + str(pre_next_one) + ", " + str(pre_next_two) + " -> " + str(pre_mean))
 
